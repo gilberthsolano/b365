@@ -23,7 +23,7 @@ namespace ApiBanca.Controllers
             catch (Exception error){
                 return BadRequest(new { Mensaje = error.Message });}
         }
-        // AQUI VA LA VALIDACION DE ROSTRO
+        // AQUI VA LA VALIDACION DE ROSTRO rmarco
          [HttpPost("validar-rostro")]
         public async Task<ActionResult> ValidarRostro(ValidarRostro.DatosValidarRostro request)
         {
