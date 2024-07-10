@@ -99,5 +99,20 @@ namespace Aplicacion.Infraestructura.RegistroCivil.Implementaciones
             return true;
         }
         // Aqui metodo para validacion de rostro
+        public async Task<bool> ValidarRostro(string base64)
+        {
+            if (base64.Length % 4 != 0) return false;
+            try
+            {
+                byte[] bytes = Convert.FromBase64String(base64);
+                string base64String = Convert.ToBase64String(bytes);
+                return base64String.TrimEnd('=') == base64.TrimEnd('=');
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+        }
+
     }
 }
